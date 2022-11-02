@@ -15,15 +15,22 @@
             </div>
         </header>
         <div id="root">
-            <div class="item-container">
-                <p class="emoji">🍕</p>
-                <div class="item-text">
-                    <h2 class="item-name">Burger</h2>
-                    <p class="item-description">Description</p>
-                    <h4 class="item-price">14$</h4>
+        </div>
+        <div id="cart">
+            <h2>
+                Your Order
+            </h2>
+            <div id="cart-container">
+                <div id="cart-items-container">
+                    <div class="cart-item">
+                        <h2 class="item-name-and-qty">Pizza X 2</h2>
+                        <button class="remove-from-cart" data-id="cart-id">remove</button>
+                        <h2 class="item-total">14$</h2>
+                    </div>
                 </div>
-                <button class="add-btn" ><img src="https://cdn-icons-png.flaticon.com/512/32/32339.png"></button>
+                <div id="total"><h2>Total Price</h1><span id="total-price">5$</span></div>
             </div>
+            <button id="complete-order">Complete Order</button>
         </div>
 	<script src="index.js" type="module"></script>
     </body>
