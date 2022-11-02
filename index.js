@@ -5,11 +5,23 @@ const cart = []
 const totalPriceEl = document.getElementById("total-price")
 const cartElContainer = document.getElementById("cart-items-container")
 
-rootEl.addEventListener("click", (event) => {
+document.addEventListener("click", (event) => {
     if (event.target.dataset.item) {
         handleAddItem(event.target.dataset.item)
+    } else if (event.target.dataset.remove) {
+        handleRemoveItem(event.target.dataset.remove)
     }
 })
+
+function handleRemoveItem(itemRemoved) {
+    const itemRemovedIndex = cart.findIndex((item) => item.id == itemRemoved)
+    cart[itemRemovedIndex].quantity --
+    if (cart[itemRemovedIndex].quantity == 0) {
+        cart.splice(itemRemovedIndex,1)
+    }
+    render()
+    totalPriceEl.innerText = calculateCartTotal() + "$"
+}
 
 function handleAddItem(itemAdded){
     const itemAddedIndex = menuArray.findIndex((item) => item.id == itemAdded)
@@ -20,18 +32,21 @@ function handleAddItem(itemAdded){
         quantity: 1,
     }
 
-    let cartArrayBoolean = false
-    
-    cart.forEach((item) => {
-        if (item.name == cartItemobject.name){
-            cartArrayBoolean = true
-        }
-    })
-    if (cartArrayBoolean) {
-        cart[menuArray.findIndex((item) => item.name == cartItemobject.name)].quantity ++
+    const cartIndex = cart.findIndex((item) => item.id == itemAdded)
+
+    if (cartIndex > -1) {
+        cart[cartIndex].quantity ++
     } else {
         cart.push(cartItemobject)
     }
+    render()
+    totalPriceEl.innerText = calculateCartTotal() + "$"
+}
+
+function calculateCartTotal() {
+    let total = 0
+    cart.forEach((cartItem)=> total += cartItem.price*cartItem.quantity)
+    return total
 }
 
 function generateCartHTML(){
@@ -41,7 +56,7 @@ function generateCartHTML(){
         <div id="cart-items-container">
             <div class="cart-item">
                 <h2 class="item-name-and-qty">${cartItem.name} X ${cartItem.quantity}</h2>
-                <button class="remove-from-cart" data-id="${cartItem.id}">remove</button>
+                <button class="remove-from-cart" data-remove="${cartItem.id}">remove</button>
                 <h2 class="item-total">${cartItem.price*cartItem.quantity}$</h2>
             </div>
         </div>
@@ -70,11 +85,11 @@ function generateMenuHTML (){
 function render () {
     rootEl.innerHTML = generateMenuHTML()
     if (cart.length > 0) {
+        document.getElementById("cart").classList.remove("hidden")
         cartElContainer.innerHTML = (generateCartHTML())
     } else {
-        cartElContainer.innerHTML = ""
+        document.getElementById("cart").classList.add("hidden")
     }
-    
 }
 
 render()
