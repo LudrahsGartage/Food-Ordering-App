@@ -27,6 +27,15 @@
             </div>
             <button id="complete-order">Complete Order</button>
         </div>
+        <div id="modal" class="hidden">
+            <h2>Enter Card Details</h2>
+            <form>
+                <input type="text" name="name" placeholder="Enter your Name" id="name" required>
+                <input type="text" name="card" placeholder="Enter your Card Number" required>
+                <input type="password" name="cvv" placeholder="Enter your Card's CVV" required>
+                <button type="submit" id="pay">Pay</button>
+            </form>
+        </div>
 	<script src="index.js" type="module"></script>
     </body>
 </html>

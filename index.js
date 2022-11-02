@@ -6,12 +6,30 @@ const totalPriceEl = document.getElementById("total-price")
 const cartElContainer = document.getElementById("cart-items-container")
 
 document.addEventListener("click", (event) => {
+    event.preventDefault()
     if (event.target.dataset.item) {
         handleAddItem(event.target.dataset.item)
     } else if (event.target.dataset.remove) {
         handleRemoveItem(event.target.dataset.remove)
+    } else if (event.target.id == "complete-order") {
+        handleCompleteOrder()
+    } else if (event.target.id == "pay") {
+        handlePayment()
     }
 })
+
+function handleCompleteOrder () {
+    document.getElementById("modal").classList.toggle("hidden")
+}
+
+function handlePayment () {
+    document.getElementById("modal").classList.toggle("hidden")
+    cart.splice(0)
+    render()
+    document.querySelector("body").innerHTML += `
+    <p id="confirmation">Thank you, ${document.getElementById("name").value}! Your order is on it's way!</p>
+    `
+}
 
 function handleRemoveItem(itemRemoved) {
     const itemRemovedIndex = cart.findIndex((item) => item.id == itemRemoved)
@@ -76,7 +94,7 @@ function generateMenuHTML (){
                 <p class="item-description">${item.ingredients}</p>
                 <h4 class="item-price">${item.price}$</h4>
             </div>
-            <button class="add-btn" data-item="${item.id}"><img src="https://cdn-icons-png.flaticon.com/512/32/32339.png"></button>
+            <button class="add-btn" data-item="${item.id}">+</button>
         </div>`
     })
     return menuHTML
