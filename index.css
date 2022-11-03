@@ -182,7 +182,6 @@ input {
     border-radius: 3px;
     font-weight: 400;
     font-size: 32px;
-    line-height: 17px;
     color: #065F46;
     padding: 20px;
     display: block;
@@ -194,3 +193,10 @@ input {
 .hidden {
     display: none;
 }
+
+@media (max-width: 1000px) {
+    #cart, #root, #modal {
+        width: 80%;
+        max-width: none;
+    }
+  }
