@@ -1,11 +1,13 @@
 body {
     margin: 0;
     font-family: 'Smythe', cursive;
+    font-size: 16px;
 } 
 
 header {
-    padding: 24px 15%;
+    padding: 1.5rem 15%;
     color: white;
+    font-size: 1rem;
     text-shadow: 0px 0px 1px #222222;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,14 +17,12 @@ header {
 
 header > h1 {
     font-style: normal;
-    font-size: 39px;
-    line-height: 24px;
+    font-size: 1.5rem;
 }
 
 header > h3 {
     font-style: normal;
-    font-size: 22.4216px;
-    line-height: 14px;
+    font-size: 1.2rem;
 }
 
 #root{
@@ -37,26 +37,25 @@ header > h3 {
     align-items: center;
     border-bottom: 1px solid #D2D2D2;
     padding: 20px 0px;
+    font-size: 1rem;
 }
 
 .emoji {
-    font-size: 64px;
+    font-size: 4rem;
     margin: 0px 10px 0px 0px;
 }
 
 .item-name {
     margin-bottom: 0px;
     font-style: normal;
-    font-size: 28px;
-    line-height: 17px;
+    font-size: 2.5rem;
 }
 
 .item-description {
     font-family: 'Smythe';
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 10px 0px;
+    font-size: 2rem;
+    margin: .67rem 0px;
     color: #8B8B8B;
 }
 
@@ -66,18 +65,19 @@ header > h3 {
 
 
 .item-text {
+    font-size: 2rem;
     margin-right: auto;
 }
 
 .add-btn {
-    font-size: 32px;
+    font-size: 2rem;
     color: #3C3C3C;
     background-color: white;
     border-radius: 50%;
     border: 1.5px solid #DEDEDE;
-    padding: 10px 15px;
+    padding: .65rem .9rem;
     cursor: pointer;
-    line-height: 20px;
+    line-height: 1.25rem;
     display: inline-block;
 }
 
@@ -89,7 +89,7 @@ header > h3 {
     text-align: center;
     width: 80%;
     max-width: 500px;
-    margin: 10px auto;
+    margin: .67rem auto;
 }
 
 #total {
@@ -102,13 +102,14 @@ header > h3 {
 
 #cart > h2 {
     display: inline;
-    margin:10px auto 10px 0px;
+    margin:.67rem auto .67rem 0px;
     font-size: 2rem;
 }
 
 #total-price {
     margin-left: auto;
-    font-size: 2rem;
+    font-size: 4rem;
+    font-style: bold;
 }
 
 .cart-item{
@@ -129,6 +130,7 @@ header > h3 {
 
 .item-total{
     margin-left: auto;
+    font-size: 2rem;
 }
 
 #complete-order, #pay {
@@ -142,6 +144,7 @@ header > h3 {
     border: none;
     padding: 1rem 0px;
     margin-top: 1rem;
+    font-size: 2rem;
 }
 
 #complete-order:hover, #pay:hover {
@@ -159,7 +162,7 @@ header > h3 {
     margin: 10px auto;
     padding: 10px 10px 30px 10px;
     background: #FFFFFF;
-    border-radius: 3.88991px;
+    border-radius: 4px;
     box-shadow: 0px 0px 200px black;
     height: fit-content;
     position: fixed;
@@ -181,11 +184,11 @@ input {
     background: #ECFDF5;
     border-radius: 3px;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 2rem;
     color: #065F46;
     padding: 20px;
     display: block;
-    margin: 0px auto;
+    margin: 1em auto;
     width: 80%;
     max-width: 500px;;
 }
@@ -198,5 +201,13 @@ input {
     #cart, #root, #modal {
         width: 80%;
         max-width: none;
+    }
+    html, body {
+        font-size: 24px;
+    }
+
+    .add-btn {
+        font-size: 4rem;
+        padding-bottom: 1.25rem ;
     }
   }
