@@ -102,7 +102,7 @@ header > h3 {
 
 #cart > h2 {
     display: inline;
-    margin:.67rem auto .67rem 0px;
+    margin: 0rem auto 0rem 0px;
     font-size: 2rem;
 }
 
@@ -115,6 +115,7 @@ header > h3 {
 .cart-item{
     display: flex;
     align-items: center;
+    margin: .75rem 0rem;
 }
 
 .remove-from-cart {
@@ -129,8 +130,12 @@ header > h3 {
 }
 
 .item-total{
-    margin-left: auto;
+    margin: 0 0 0 auto;
     font-size: 2rem;
+}
+
+.item-name-and-qty {
+    margin: 0.5rem 0rem;
 }
 
 #complete-order, #pay {
@@ -171,6 +176,7 @@ header > h3 {
     right: 0px;
     bottom: 0px;
     margin: auto;
+    font-size: 2rem;
 }
 
 input {
